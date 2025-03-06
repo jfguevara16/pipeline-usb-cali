@@ -40,7 +40,7 @@ jobs:
         run: docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/pipeline:latest .
 
       - name: Push Docker image
-        run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/my-java-api:latest
+        run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/pipeline:latest
 
       - name: Create Git Tag
         id: tag
