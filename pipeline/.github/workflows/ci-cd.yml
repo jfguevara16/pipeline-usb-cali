@@ -17,8 +17,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v3
         with:
+          distribution: 'temurin'
           java-version: '17'
 
       - name: Build with Maven
@@ -44,7 +45,7 @@ jobs:
 
       - name: Create Git Tag
         id: tag
-        run: echo "::set-output name=tag::$(echo ${GITHUB_REF##*/}-$(date +%Y%m%d%H%M%S))"
+        run: echo "tag=$(echo ${GITHUB_REF##*/}-$(date +%Y%m%d%H%M%S))" >> $GITHUB_ENV
 
       - name: Push Git Tag
-        run: git tag ${{ steps.tag.outputs.tag }} && git push origin ${{ steps.tag.outputs.tag }}
+        run: git tag ${{ env.tag }} && git push origin ${{ env.tag }}
