@@ -5,7 +5,7 @@ FROM eclipse-temurin:17-jre-jammy
 WORKDIR /app
  
 # Copiar el archivo JAR generado
-COPY target/pipeline.jar pipeline.jar
+COPY target/pipeline-0.0.1-SNAPSHOT.jar pipeline-0.0.1-SNAPSHOT.jar
  
 # Exponer el puerto 8080
 EXPOSE 8080
