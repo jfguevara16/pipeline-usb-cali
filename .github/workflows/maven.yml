@@ -23,10 +23,10 @@ jobs:
         run: cd pipeline && mvn clean package
 
       - name: Run Unit Tests
-        run: mvn test
+        run: cd pipeline && mvn test
 
       - name: Run Functional Tests
-        run: mvn verify
+        run: cd pipeline && mvn verify
 
       - name: Login to Docker Hub
         uses: docker/login-action@v2
